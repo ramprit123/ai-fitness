@@ -4,6 +4,7 @@ import { api } from "./_generated/api";
 
 const http = httpRouter();
 
+//: TODO Add security use clerk webhooks to verify the webhook signature
 http.route({
   path: "/clerk-webhook",
   method: "POST",
@@ -25,21 +26,15 @@ http.route({
     if (type === "user.created") {
       const userData = {
         clerkId: data.id,
-        email: data.email_addresses[0]?.email_address,
-        firstName: data.first_name,
-        lastName: data.last_name,
-        imageUrl: data.image_url,
-        height: undefined,
-        weight: undefined,
-        activityLevel: undefined,
-        preferredUnitSystem: undefined,
-        equipmentIds: undefined,
-        injuriesLimitations: undefined,
-        fitnessLevel: undefined,
-        preferredWorkoutTypes: undefined,
-        preferredMuscleGroups: undefined
+        email: data.email_addresses[0]?.email_address ?? "",
+        firstName: data.first_name ?? "",
+        lastName: data.last_name ?? "",
+        imageUrl: data.image_url ?? "",
       };
-      await ctx.runMutation(api.users.createUser, userData);
+      await ctx.runMutation(api.users.createUser, {
+        ...userData,
+        role: "candidate" as "candidate" | "interviewer",
+      });
       return new Response("User created successfully", { status: 200 });
     }
 

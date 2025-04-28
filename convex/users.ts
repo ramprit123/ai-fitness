@@ -5,6 +5,7 @@ export const createUser = mutation({
   args: {
     clerkId: v.string(),
     email: v.string(),
+    role: v.union(v.literal("candidate"), v.literal("interviewer")),
     firstName: v.optional(v.string()),
     lastName: v.optional(v.string()),
     imageUrl: v.optional(v.string()),
@@ -12,12 +13,11 @@ export const createUser = mutation({
   handler: async (ctx, args) => {
     const user = await ctx.db.insert("users", {
       clerkId: args.clerkId,
+      role: args.role,
       email: args.email,
       firstName: args.firstName,
       lastName: args.lastName,
       imageUrl: args.imageUrl,
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
     });
     return user;
   },
