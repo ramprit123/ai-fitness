@@ -5,7 +5,6 @@ import { Geist } from "next/font/google";
 
 import { TRPCReactProvider } from "@/trpc/react";
 import { ClerkProvider } from "@clerk/nextjs";
-import { Header } from "./_components/Header";
 
 export const metadata: Metadata = {
   title: "AI Fitness - Your Personal AI Workout Companion",
@@ -39,7 +38,6 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en" className={`${geist.variable}`}>
         <body>
-          <Header />
           <TRPCReactProvider>{children}</TRPCReactProvider>
         </body>
       </html>
