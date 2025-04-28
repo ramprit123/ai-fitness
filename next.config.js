@@ -5,6 +5,21 @@
 import "./src/env.js";
 
 /** @type {import("next").NextConfig} */
-const config = {};
+const config = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "img.clerk.com",
+        pathname: "/**",
+      },
+    ],
+  },
+};
 
 export default config;

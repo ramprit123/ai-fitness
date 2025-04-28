@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" fill="none">
+  <!-- Background Shape -->
+  <path d="M0 0h800v600H0z" fill="#f8f9fa"/>
+  
+  <!-- Silhouette of person exercising -->
+  <path d="M400 150c22.1 0 40-17.9 40-40s-17.9-40-40-40-40 17.9-40 40 17.9 40 40 40zm-80 280h160M360 250l40 80 40-80M400 330v120" stroke="#0066cc" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Abstract fitness elements -->
+  <circle cx="200" cy="200" r="30" stroke="#00cc66" stroke-width="10" fill="none"/>
+  <circle cx="600" cy="400" r="40" stroke="#ff6b6b" stroke-width="10" fill="none"/>
+  
+  <!-- Decorative lines -->
+  <path d="M100 500l100-100M600 100l100 100" stroke="#5f3dc4" stroke-width="8" stroke-linecap="round"/>
+  
+  <!-- AI Circuit Pattern -->
+  <path d="M650 200h100M50 400h100" stroke="#845ef7" stroke-width="4" stroke-dasharray="10,10"/>
+  <circle cx="700" cy="200" r="5" fill="#845ef7"/>
+  <circle cx="100" cy="400" r="5" fill="#845ef7"/>
+</svg>
